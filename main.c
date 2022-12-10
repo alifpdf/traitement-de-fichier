@@ -194,8 +194,8 @@ int m;
 	
 	moyenne=0;
 	moyenneprix=0;
-	int aleatoire[l];
-	int z=0;	
+	int aleatoire[l];//ranger les nombre aléatoire
+	int z=0;//pour le enième nombre aléatoire	
 	FILE * fichier3=fopen("airbnb_donnees_propre.csv","r");
 	char texte3[256]; 
 	fgets(texte3,255,fichier3); //enregistrement des nom de colonne
@@ -203,12 +203,12 @@ int m;
 	double distancedesordre[l];//on va ranger les distances aléatoirement
 	int distdesordre[l]; //on va ranger les distances aléatoirement en enlevant le négatif
 	int desordre[l];// ranger les numéros de series issue de la première colonne dans le désordre
-	int prixale[l];// ranger les prix aléatoirement
+	int prixale[l];// ranger les prix aléatoirement en entier
 	for(m=0;m<l;m++)
 	{
 	aleatoire[m]=rand()%(nbligne+1);//générer le nombre aléatoire entre 0 et le nombre de données
 	}
-	triRapid1(aleatoire,0,l-1);//mettre les numéro aléatoire dns l'ordre decroissant
+	triRapid1(aleatoire,0,l-1);//mettre les numéro aléatoire dans l'ordre croissant
 	
 	for(i=0;i<nbligne;i++)
 	{
@@ -295,7 +295,7 @@ int m;
 			default:
 			break;         			
       			}
-        		z=z+1;
+        		z=z+1;//on incrémente pour le prochain rang aléatoire à trouver parmi la liste de logement 
         	}
         }                                              
         			 
@@ -319,3 +319,12 @@ int m;
 
 
 }
+
+
+
+	
+	
+	
+	
+
+
