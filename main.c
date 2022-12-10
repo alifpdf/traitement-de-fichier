@@ -176,7 +176,7 @@ int m;
 	
   	
 //--------------------------------------------------------------------choix du k premier d'appartement et tri dans l'ordre décroissant-----------------------------------------------------------------
-	triRapid(dist,ordre,prix,0,nbligne-1); //tri des distance dans l'ordre décroissant
+	triRapid(dist,ordre,prix,0,nbligne-1); //tri des distance dans l'ordre croissant
 	int l;
 	int moyenne=0;
 	int moyenneprix=0;
@@ -301,7 +301,7 @@ int m;
         			 
         	       		   	
 	fclose(fichier3);
-	triRapid(distdesordre,desordre,prixale,0,l-1); //tri des distance aleatoirement dans l'ordre décroissant
+	triRapid(distdesordre,desordre,prixale,0,l-1); //tri des distance aleatoirement dans l'ordre croissant
 	printf("\naléatoirement\n");
 	for(i = 0; i < l; i++)  {
 		moyenne=moyenne+distdesordre[i];//calcul de moyenne en faisant d'abord une somme
