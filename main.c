@@ -188,7 +188,7 @@ int m;
 	printf("%d:la distance est de %d\n",ordre[i],dist[i]);}//afficher les k premiers distances avec leurs numéros de séries
 	moyenne=moyenne/l;//calcul de moyenne
 	moyenneprix=moyenneprix/l;//calcul de moyenne
-	printf("la moyenne de distance est de %d\n",moyenne);//afficher la moyenne des k premiers données  
+	printf("\nla moyenne de distance est de %d\n",moyenne);//afficher la moyenne des k premiers données  
 	printf("la moyenne de prix est de %d\n",moyenneprix);//afficher la moyenne des k premiers données  
 //---------------------------de manière k aléatoire--------------------------------------------------------------------------------------------------------------------------------------------	
 	
@@ -302,6 +302,7 @@ int m;
         	       		   	
 	fclose(fichier3);
 	triRapid(distdesordre,desordre,prixale,0,l-1); //tri des distance aleatoirement dans l'ordre décroissant
+	printf("\naléatoirement\n");
 	for(i = 0; i < l; i++)  {
 		moyenne=moyenne+distdesordre[i];//calcul de moyenne en faisant d'abord une somme
 		moyenneprix=moyenneprix+prixale[i];
@@ -309,7 +310,7 @@ int m;
 	
 	moyenne=moyenne/l;//calcul de moyenne
 	moyenneprix=moyenneprix/l;//calcul de moyenne
-	printf("la moyenne de distance est de %d\n",moyenne);//afficher la moyenne des k premiers données  
+	printf("\nla moyenne de distance est de %d\n",moyenne);//afficher la moyenne des k premiers données  
 	printf("la moyenne de prix est de %d\n",moyenneprix);//afficher la moyenne des k premiers données 
 
 
@@ -318,12 +319,3 @@ int m;
 
 
 }
-
-
-
-	
-	
-	
-	
-
-
