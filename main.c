@@ -14,16 +14,16 @@ int k;
 int m;
 //----------------------------------nombre de ligne-----------------------------------------------------------------------------------------------------------------------------------------------
 	srand(time(NULL));
-	int nbligne=0;
+	int nbligne=0;//le nombre de lignes de données
 	FILE * fichier=fopen("airbnb_donnees_propre.csv","r");  
 	char texte[256];
 	fgets(texte,255,fichier); 
 	while(fgets(texte,255,fichier)!=NULL)
 	{
-		nbligne++;
+		nbligne++;//on incrémente dès qu'on sait le nombre de ligne
 	}
 	fclose(fichier);
-	printf("%d\n",nbligne);
+	printf("%d lignes\n",nbligne);
 //-----------------------------------donnée de l'appartement----------------------------------------------------------------------------------------------------------------------------------
 
     	struct logement{
@@ -100,7 +100,7 @@ int m;
         	switch(j)
         	{
         		case 1:
-        		distance[i]=(x1.accommodates-atoi(colonne));
+        		distance[i]=(x1.accommodates-atoi(colonne));//distance de accommodates
         		for(k=1;k<5;k++){       
         		colonne = strtok (NULL, ",");
         		if (k==4){//enregistrer le prix
@@ -111,7 +111,7 @@ int m;
         		else{dist[i]=distance[i];}
         		break;
         		case 2:
-        		distance[i]=(x1.bedrooms-atoi(colonne));
+        		distance[i]=(x1.bedrooms-atoi(colonne));//distance de bedroom
         		for(k=2;k<5;k++){       
         		colonne = strtok (NULL, ",");
         		if (k==4){//enregistrer le prix
@@ -122,7 +122,7 @@ int m;
         		else{dist[i]=distance[i];}
 			break;
 			case 3:
-			distance[i]=(x1.bathrooms-atoi(colonne));
+			distance[i]=(x1.bathrooms-atoi(colonne));//distance de bathroom
 			for(k=3;k<5;k++){       
         		colonne = strtok (NULL, ",");
         		if (k==4){//enregistrer le prix
@@ -133,7 +133,7 @@ int m;
         		else{dist[i]=distance[i];}
 			break;
 			case 4:
-			distance[i]=(x1.beds-atoi(colonne));
+			distance[i]=(x1.beds-atoi(colonne));//distance de beds
 			for(k=4;k<5;k++){       
         		colonne = strtok (NULL, ",");
         		if (k==4){//enregistrer le prix
@@ -144,25 +144,25 @@ int m;
         		else{dist[i]=distance[i];}
 			break;
 			case 5:
-			distance[i]=(x1.prix-atoi(colonne));
+			distance[i]=(x1.prix-atoi(colonne));//distance de prix
 			if(distance[i]<0)		//enlever le négatif
         		{dist[i]=distance[i]*(-1);}
         		else{dist[i]=distance[i];}
 			break;
 			case 6:
-			distance[i]=(x1.minimum_nights-atoi(colonne));
+			distance[i]=(x1.minimum_nights-atoi(colonne));//distance de minimum_nights
 			if(distance[i]<0)		//enlever le négatif
         		{dist[i]=distance[i]*(-1);}
         		else{dist[i]=distance[i];}
 			break;
 			case 7:
-			distance[i]=(x1.maximum_nights-atoi(colonne));if(distance[i]<0)//enlever le négatif
-        		{dist[i]=distance[i]*(-1);}
+			distance[i]=(x1.maximum_nights-atoi(colonne));if(distance[i]<0)//distance de maximum_nights
+        		{dist[i]=distance[i]*(-1);}//enlever le négatif
         		else{dist[i]=distance[i];}
 			
 			break;
 			case 8:
-			distance[i]=(x1.number_of_reviews-atoi(colonne));
+			distance[i]=(x1.number_of_reviews-atoi(colonne));//distance de number of review
 			if(distance[i]<0)		//enlever le négatif
         		{dist[i]=distance[i]*(-1);}
         		else{dist[i]=distance[i];}
@@ -176,12 +176,12 @@ int m;
 	
   	
 //--------------------------------------------------------------------choix du k premier d'appartement et tri dans l'ordre décroissant-----------------------------------------------------------------
-	triRapid(dist,ordre,prix,0,nbligne-1); //tri des distance dans l'ordre croissant
-	int l;
+	triRapid(dist,ordre,prix,0,nbligne-1); //tri des distance avec le prix et le numero de série dans l'ordre croissant
+	int l;//c'est le k nombre 
 	int moyenne=0;
 	int moyenneprix=0;
 	printf("votre k nombre à afficher\n");
-	scanf("%d",&l);
+	scanf("%d",&l);//remplir le k nombre
 	for(i = 0; i < l; i++)  {
 	moyenne=moyenne+dist[i];//calcul de moyenne en faisant d'abord une somme
 	moyenneprix=moyenneprix+prix[i];
@@ -225,71 +225,71 @@ int m;
         			}} //séparation des données selon une virgule qui sépare	
         		switch(j){
         		case 1:
-        		distancedesordre[z]=(x1.accommodates-atoi(colonne1));
+        		distancedesordre[z]=(x1.accommodates-atoi(colonne1));//distance de accommodates
         		for(k=1;k<5;k++){       
-        		colonne = strtok (NULL, ",");
-        		if (k==4){
-        		prixale[z]=atoi(colonne);//enregistrer le prix
+        			colonne = strtok (NULL, ",");
+        			if (k==4){
+        			prixale[z]=atoi(colonne);//enregistrer le prix
         		}}
         		if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
         		break;
         		case 2:
-        		distancedesordre[z]=(x1.bedrooms-atoi(colonne1));
+        		distancedesordre[z]=(x1.bedrooms-atoi(colonne1));//distance de bedroom
         		for(k=2;k<5;k++){       
-        		colonne = strtok (NULL, ",");
-        		if (k==4){
-        		prixale[z]=atoi(colonne);//enregistrer le prix
+        			colonne = strtok (NULL, ",");
+        			if (k==4){
+        				prixale[z]=atoi(colonne);//enregistrer le prix
         		}}
         		if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			case 3:
-			distancedesordre[z]=(x1.bathrooms-atoi(colonne1));
+			distancedesordre[z]=(x1.bathrooms-atoi(colonne1));//distance de bathroom
 			for(k=3;k<5;k++){       
-        		colonne = strtok (NULL, ",");
-        		if (k==4){
-        		prixale[z]=atoi(colonne);//enregistrer le prix
+        			colonne = strtok (NULL, ",");
+        			if (k==4){
+        				prixale[z]=atoi(colonne);//enregistrer le prix
         		}}
 			if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			case 4:
-			distancedesordre[z]=(x1.beds-atoi(colonne1));
+			distancedesordre[z]=(x1.beds-atoi(colonne1));//distance de beds
 			for(k=4;k<5;k++){       
-        		colonne = strtok (NULL, ",");
-        		if (k==4){
-        		prixale[z]=atoi(colonne);//enregistrer le prix
+        			colonne = strtok (NULL, ",");
+        			if (k==4){
+        				prixale[z]=atoi(colonne);//enregistrer le prix
         		}}
 			if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			case 5:
-			distancedesordre[z]=(x1.prix-atoi(colonne1));
+			distancedesordre[z]=(x1.prix-atoi(colonne1));//distance de prix
 			if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			case 6:
-			distancedesordre[z]=(x1.minimum_nights-atoi(colonne1));
+			distancedesordre[z]=(x1.minimum_nights-atoi(colonne1));//distance de minimum_nights
 			if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			case 7:
-			distancedesordre[z]=(x1.maximum_nights-atoi(colonne1));
+			distancedesordre[z]=(x1.maximum_nights-atoi(colonne1));//distance de maximum_nights
 			if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			case 8:
-			distancedesordre[z]=(x1.number_of_reviews-atoi(colonne1));
+			distancedesordre[z]=(x1.number_of_reviews-atoi(colonne1));//number of reviews
 			if(distancedesordre[z]<0)//enlever le négatif
-        		{distdesordre[z]=distancedesordre[z]*(-1);}
+        			{distdesordre[z]=distancedesordre[z]*(-1);}
         		else{distdesordre[z]=distancedesordre[z];}
 			break;
 			default:
@@ -310,8 +310,8 @@ int m;
 	
 	moyenne=moyenne/l;//calcul de moyenne
 	moyenneprix=moyenneprix/l;//calcul de moyenne
-	printf("\nla moyenne de distance est de %d\n",moyenne);//afficher la moyenne des k premiers données  
-	printf("la moyenne de prix est de %d\n",moyenneprix);//afficher la moyenne des k premiers données 
+	printf("\nla moyenne de distance est de %d\n",moyenne);//afficher la moyenne des k premiers données aléatoire
+	printf("la moyenne de prix est de %d\n",moyenneprix);//afficher la moyenne des k premiers données aléatoire
 
 
 	
